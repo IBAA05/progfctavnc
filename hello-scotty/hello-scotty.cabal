@@ -1,0 +1,15 @@
+cabal-version:      3.0
+name:               hello-scotty
+version:            0.1.0.0
+
+common deps
+    ghc-options:      -O2 -Wall
+    build-depends:    aeson, base, lucid2, scotty, text, text-show,
+                      wai-extra, wai-middleware-static
+    default-language: GHC2024
+
+executable hello-scotty
+    import:           deps
+    hs-source-dirs:   app
+    main-is:          main.hs
+    ghc-options: -threaded

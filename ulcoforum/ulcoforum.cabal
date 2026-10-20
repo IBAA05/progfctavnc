@@ -1,0 +1,27 @@
+cabal-version:      3.0
+name:               ulcoforum
+version:            0.1.0.0
+
+common deps
+    default-language: GHC2024
+    ghc-options:      -O2 -Wall
+    build-depends:    base, lucid2, selda, selda-sqlite, scotty,
+                      text, wai-extra
+
+library
+    import:             deps
+    hs-source-dirs:     src
+    exposed-modules:    Model View
+
+executable ulcoforum
+    import:             deps
+    hs-source-dirs:     app
+    main-is:            main.hs
+    build-depends:      ulcoforum
+
+executable ulcoforum-init-db
+    import:             deps
+    hs-source-dirs:     app
+    main-is:            init-db.hs
+    build-depends:      ulcoforum
+
